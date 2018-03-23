@@ -1,0 +1,65 @@
+:host {
+	display: inline-block;
+	width: var(--icon-width);
+	height: var(--icon-height);
+	contain: size paint;
+
+	.wrapper {
+		display: inline-block;
+		position: relative;
+		width: 100%;
+		max-width: var(--icon-width);
+		max-height: var(--icon-height);
+		color: var(--icon-color);
+
+		.icon-wrap {
+			display: block;
+			position: relative;
+			padding-top: var(--icon-aspect-ratio);
+			height: 0;
+		}
+
+		svg {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			fill: currentColor;
+			width: 100%;
+			max-width: 100%;
+			height: 100%;
+			overflow: visible;
+			color: currentColor;
+		}
+
+		g {
+			display: block;
+		}
+
+		&[data-block="true"] {
+			display: block;
+			width: var(--icon-width);
+			height: var(--icon-height);
+
+			.icon-wrap {
+				padding-top: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			&[data-responsive="true"] {
+				width: 100%;
+				height: auto;
+
+				.icon-wrap {
+					padding-top: var(--icon-aspect-ratio);
+				}
+			}
+		}
+
+	}
+}
+
+:host(.responsive) {
+	width: 100%;
+}
